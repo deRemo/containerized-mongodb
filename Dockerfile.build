@@ -1,0 +1,9 @@
+FROM rt-mongod-env:latest
+
+RUN GIT_SSL_NO_VERIFY=true git clone https://gitlab.retis.santannapisa.it/t.cucinotta/mongo.git
+
+WORKDIR ./mongo
+RUN git checkout v4.4-rt
+
+RUN python3 -m pip install -r ./etc/pip/compile-requirements.txt
+RUN python3 ./buildscripts/scons.py CC=gcc-8 CXX=g++-8 install-mongod install-mongo -j 20 LINKFLAGS=-fuse-ld=bfd && mv ./build/install/bin/* ./

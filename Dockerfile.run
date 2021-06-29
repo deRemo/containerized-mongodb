@@ -1,0 +1,10 @@
+FROM rt-mongod-build:latest AS build
+FROM rt-mongod-env:latest AS base
+
+COPY --from=build ./mongo/mongod ./
+COPY --from=build ./mongo/mongo ./
+
+VOLUME ["/data/db"]
+
+EXPOSE 27017
+CMD ./mongod --dbpath /data/db --logpath /data/db.log
