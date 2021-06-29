@@ -6,5 +6,4 @@ COPY --from=build ./mongo/mongo ./
 
 VOLUME ["/data/db"]
 
-EXPOSE 27017
-CMD ./mongod --dbpath /data/db --logpath /data/db.log
+CMD ./mongod --bind_ip $(hostname -i | awk '{print $1}') --dbpath /data/db --logpath /data/db.log
