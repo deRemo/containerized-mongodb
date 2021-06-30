@@ -1,0 +1,5 @@
+build: sudo docker build . -f Dockerfile.PHASE -t NAME:TAG
+
+run rt-mongod docker: sudo docker run --name rt-mongod --rm -p 27017:27017 -it rt-mongodn
+
+get container ip address: sudo docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' CONTAINER_ID 
