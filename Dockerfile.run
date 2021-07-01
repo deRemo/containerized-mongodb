@@ -6,4 +6,4 @@ COPY --from=build ./mongo/mongo ./
 
 VOLUME ["/data/db"]
 
-CMD ./mongod --bind_ip $(hostname -i | awk '{print $1}') --replSet "rs0" --dbpath /data/db --logpath /data/db.log
+CMD ./mongod --bind_ip $(hostname -i | awk '{print $1}') --replSet "rs0" --dbpath /data/db --logpath /data/db.log --priority 1
