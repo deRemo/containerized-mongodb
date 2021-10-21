@@ -20,7 +20,11 @@ cfg = "{_id: 'rs0', members: ["+members+"]}"
 	
 	
 print(cfg)
-inner_cmd = "./mongo --host "+sys.argv[1]+" --eval \"JSON.stringify(db.adminCommand({'replSetInitiate' : "+cfg+"}))\""
-outer_cmd = "sudo docker exec -it rt-mongod bash -c '"+inner_cmd+"'"
+#NOTE: I need the ugly \\\", or else the python interpreter won't keep \" as it is,
+#causing a syntax error on bash
+inner_cmd = "./mongo --host "+sys.argv[1]+" --eval \\\"JSON.stringify(db.adminCommand({'replSetInitiate' : "+cfg+"}))\\\""
+outer_cmd = "sudo docker exec -it rt-mongod bash -c \""+inner_cmd+"\""
 
+print(outer_cmd)
+print(inner_cmd)
 os.system(outer_cmd)
