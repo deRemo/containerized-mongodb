@@ -1,6 +1,6 @@
 # dockerized-mongodb
 <p align="center">
-  <img src="https://github.com/deRemo/dockerized-mongodb/blob/main/container_network.png?raw=true" alt="Container network"/>
+  <img src="https://github.com/deRemo/dockerized-mongodb/blob/main/sample_img.png?raw=true" alt="Container network"/>
 </p>
 
 The purpose of this repo is to show how to dockerize MongoDB from scratch and
