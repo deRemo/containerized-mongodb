@@ -25,6 +25,4 @@ print(cfg)
 inner_cmd = "./mongo --host "+sys.argv[1]+" --eval \\\"JSON.stringify(db.adminCommand({'replSetInitiate' : "+cfg+"}))\\\""
 outer_cmd = "sudo docker exec -it rt-mongod bash -c \""+inner_cmd+"\""
 
-print(outer_cmd)
-print(inner_cmd)
 os.system(outer_cmd)
