@@ -1,4 +1,10 @@
 #!/usr/bin/python3
-import os
+import os,socket
 
-os.system("sudo docker run --name rt-mongod --rm -d -p $(hostname -i | awk '{print $1}'):27017:27017 -it rt-mongod")
+def get_ip():
+	with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:
+
+		s.connect(("8.8.8.8", 80))
+		return s.getsockname()[0]
+
+os.system(f"sudo docker run --name rt-mongod --rm -d -p {get_ip()}:27017:27017 -it rt-mongod")
