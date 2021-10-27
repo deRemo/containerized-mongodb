@@ -7,3 +7,5 @@ get container ip address: sudo docker inspect -f '{{range.NetworkSettings.Networ
 execute shell in container: sudo docker exec -it rt-mongod bash
 
 execute mongo shell in container: sudo docker exec -it rt-mongod ./mongo --host $(hostname -i | awk '{print $1}') 
+
+remove untagged images: sudo docker rmi $(sudo docker images -a | grep "^<none>" | awk '{print $3}')
