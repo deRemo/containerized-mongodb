@@ -6,4 +6,7 @@ def get_ip():
 		s.connect(("8.8.8.8", 80))
 		return s.getsockname()[0]
 
-os.system(f"sudo docker run --name rt-mongod --rm -d -p {get_ip()}:27017:27017 -it rt-mongod")
+def get_pwd():
+	return os.path.abspath(os.getcwd())
+
+os.system(f"sudo docker run --name rt-mongod --rm -d -p {get_ip()}:27017:27017 -v {get_pwd()}/cfg:/cfg -it rt-mongod")

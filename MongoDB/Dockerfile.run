@@ -3,8 +3,7 @@ FROM rt-mongod-env:latest AS base
 
 COPY --from=build ./mongo/mongod ./
 COPY --from=build ./mongo/mongo ./
-COPY mongod.conf ./
 
 VOLUME ["/data/db"]
 
-CMD ./mongod --bind_ip $(hostname -i | awk '{print $1}') --config mongod.conf --priority 1
+ENTRYPOINT ./mongod --bind_ip $(hostname -i | awk '{print $1}') --priority 1 --config ./cfg/mongod.conf 
