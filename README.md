@@ -24,7 +24,7 @@ Clone the repo on both hosts, make sure that the Python scripts are executable a
  
  Now you can interact with the database:
  ```
- user@primary_host:~/dockerized-mongodb$ mongo --host primary_host  //YOU CAN NOW INTERACT WITH THE DATABASE
+ user@primary_host:~/dockerized-mongodb$ mongo --host primary_host
  ```
  
  # Warning
