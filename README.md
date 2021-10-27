@@ -11,7 +11,7 @@ Utility tool for my research project RT-MongoDB (https://gitlab.retis.santannapi
 **NOTE**: This tool is designed for RT-MongoDB, thus it makes use of tuning server parameters that do not exist on the original MongoDB
 
 # Example of usage with 2 replica nodes
-Clone the repo on both hosts, make sure that the Python scripts are executable and the hosts reachable, then:
+Clone the repo on both hosts, make sure that the Python scripts are executable and the hosts reachable, then perform the following instructions in the respective shells:
 ```
  user@primary_host:~/dockerized-mongodb$ ./build_images.py
  user@primary_host:~/dockerized-mongodb$ ./run.py
