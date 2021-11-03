@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-import os,sys
+import subprocess,os,sys
 
 if len(sys.argv) < 2:
 	print("USAGE: ./script ip1 ip2 ... (hostname are also valid, if recognised)")
@@ -25,5 +25,6 @@ print(cfg)
 inner_cmd = "./mongo --host "+sys.argv[1]+" --eval \\\"JSON.stringify(db.adminCommand({'replSetInitiate' : "+cfg+"}))\\\""
 outer_cmd = "sudo docker exec -it rt-mongod bash -c \""+inner_cmd+"\""
 
+#execute
 os.system(outer_cmd)
-print(f"host {argv[1]} has been prioritized for primary node election")
+print(f"host {sys.argv[1]} has been prioritized for primary node election")
