@@ -3,7 +3,7 @@
 import subprocess,os,sys
 
 if len(sys.argv) < 2:
-	print("USAGE: ./script ip1 ip2 ... (hostname are also valid, if recognised)")
+	print("USAGE: ./script host1 host2 ... (host1 becomes primary)")
 	exit()
 
 print("Configuring replica set...")
@@ -27,4 +27,6 @@ outer_cmd = "sudo docker exec -it rt-mongod bash -c \""+inner_cmd+"\""
 
 #execute
 os.system(outer_cmd)
+
+print("")
 print(f"host {sys.argv[1]} has been prioritized for primary node election")
