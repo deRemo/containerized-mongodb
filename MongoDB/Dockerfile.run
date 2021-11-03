@@ -6,4 +6,4 @@ COPY --from=build ./mongo/mongo ./
 
 VOLUME ["/data/db"]
 
-ENTRYPOINT ./mongod --bind_ip $(hostname),localhost --priority 1 --config ./cfg/mongod.conf 
+ENTRYPOINT numactl --interleave=all ./mongod --bind_ip $(hostname),localhost --priority 1 --config ./cfg/mongod.conf 
