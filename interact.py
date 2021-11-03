@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import os,socket
+import os
 
 #Interact with the container using bash 
-sudo docker exec -it rt-mongod bash
+os.system("sudo docker exec -it rt-mongod bash")
