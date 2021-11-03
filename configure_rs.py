@@ -26,3 +26,4 @@ inner_cmd = "./mongo --host "+sys.argv[1]+" --eval \\\"JSON.stringify(db.adminCo
 outer_cmd = "sudo docker exec -it rt-mongod bash -c \""+inner_cmd+"\""
 
 os.system(outer_cmd)
+print(f"host {argv[1]} has been prioritized for primary node election")
