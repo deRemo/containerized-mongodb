@@ -6,4 +6,4 @@ COPY --from=build ./mongo/mongo ./
 
 VOLUME ["/data/db"]
 
-ENTRYPOINT ./mongod --bind_ip $(hostname -i | awk '{print $1}') --priority 1 --config ./cfg/mongod.conf 
+ENTRYPOINT ./mongod --bind_ip $(hostname -i | awk '{print $1}'),127.0.0.1 --priority 1 --config ./cfg/mongod.conf 
