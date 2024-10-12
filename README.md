@@ -1,10 +1,10 @@
-# dockerized-mongodb
+# containerized-mongodb
 <p align="center">
   <img src="https://github.com/deRemo/dockerized-mongodb/blob/main/sample_img.png?raw=true" alt="Container network"/>
 </p>
 
-The purpose of this repo is to show how to dockerize MongoDB from scratch and
-how to configure a replica set between multiple dockerized mongod instances.
+The purpose of this repo is to show how to containerize MongoDB from scratch and
+how to configure a replica set between multiple mongod instances.
 
 Utility tool for my research project RT-MongoDB (https://gitlab.retis.santannapisa.it/t.cucinotta/mongo/-/tree/v4.4-rt)
 
